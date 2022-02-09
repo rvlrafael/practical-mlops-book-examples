@@ -1,0 +1,20 @@
+name: Azure python 3.5
+on: [push]
+jobs:
+  build:
+    run-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: set up python 3.5.10
+    - uses: action/setup-python@v1
+    with:
+      python-version: 3.5.10
+    - name: Install dependencies
+    run:
+      make install
+    - name: Lint
+      make lint
+    - name: Test
+      make test
+
+      
